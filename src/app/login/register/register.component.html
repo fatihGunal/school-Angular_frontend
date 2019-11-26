@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <h2 class="col">Registratie Formulier</h2>
+  </div>
+
+  <div class="row">
+    <form class="col" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" class="form-control" type="text" name="email" [(ngModel)]="gebruiker.email"/>
+      </div>
+      <div class="form-group">
+        <label for="gebruikersnaam">Email:</label>
+        <input id="gebruikersnaam" class="form-control" type="text" name="gebruikersnaam" [(ngModel)]="gebruiker.gebruikersnaam"/>
+      </div>
+      <div class="form-group">
+        <label for="wachtwoord">Email:</label>
+        <input id="wachtwoord" class="form-control" type="text" name="wachtwoord" [(ngModel)]="gebruiker.wachtwoord"/>
+      </div>
+
+      <button type="submit" [disabled]="submitted">Submit</button>
+    </form>
+  </div>
+</div>
