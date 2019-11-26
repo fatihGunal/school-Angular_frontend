@@ -7,7 +7,7 @@ import { Gebruiker } from '../../models/gebruiker.model';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  gebruiker: Gebruiker = new Gebruiker(1, 'fatih@mail.be', 'muhammed', 'paswoord');
+  gebruiker = new Gebruiker();
   submitted: boolean = false;
   constructor() { }
 
@@ -15,5 +15,6 @@ export class RegisterComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
+    // API call
   }
 }

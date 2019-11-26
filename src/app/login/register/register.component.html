@@ -7,15 +7,15 @@
     <form class="col" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Email:</label>
-        <input id="email" class="form-control" type="text" name="email" [(ngModel)]="gebruiker.email"/>
+        <input id="email" class="form-control" type="text" name="email" placeholder="Email" required [(ngModel)]="gebruiker.email"/>
       </div>
       <div class="form-group">
-        <label for="gebruikersnaam">Email:</label>
-        <input id="gebruikersnaam" class="form-control" type="text" name="gebruikersnaam" [(ngModel)]="gebruiker.gebruikersnaam"/>
+        <label for="gebruikersnaam">gebruikersnaam:</label>
+        <input id="gebruikersnaam" class="form-control" type="text" name="gebruikersnaam" placeholder="gebruikersnaam" required [(ngModel)]="gebruiker.gebruikersnaam"/>
       </div>
       <div class="form-group">
-        <label for="wachtwoord">Email:</label>
-        <input id="wachtwoord" class="form-control" type="text" name="wachtwoord" [(ngModel)]="gebruiker.wachtwoord"/>
+        <label for="wachtwoord">wachtwoord:</label>
+        <input id="wachtwoord" class="form-control" type="text" name="wachtwoord" placeholder="wachtwoord" required [(ngModel)]="gebruiker.wachtwoord"/>
       </div>
 
       <button type="submit" [disabled]="submitted">Submit</button>

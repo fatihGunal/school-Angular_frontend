@@ -8,9 +8,9 @@ import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from './login/login/login.component';
 import {RegisterComponent} from './login/register/register.component';
 import {LoginModule} from './login/login.module';
-import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
 import {FormsModule} from '@angular/forms';
-
+import {GebruikerService} from './services/gebruiker.service';
+import {AuthenticateService} from './services/authenticate.service'
 
 
 const appRoutes: Routes = [
@@ -26,13 +26,13 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
     FormsModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true })
   ],
-  providers: [],
+  providers: [
+    GebruikerService,
+    AuthenticateService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
