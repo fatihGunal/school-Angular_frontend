@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Gebruiker} from '../models/gebruiker.model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +11,12 @@ export class GebruikerService {
   constructor(private http: HttpClient) { }
 
   getGebruikers(): Observable<Gebruiker[]> {
-    return null;
+    return this.http.get<Gebruiker[]>('https://localhost:44329/api/Gebruiker', {
+      // headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'))
+    });
   }
 
-  addGebruiker(gebruiker: Gebruiker) {
-    return this.http.post<Gebruiker>("https://localhost:5001/api/member", member);
+  registreerGebruiker(gebruiker: Gebruiker) {
+    return this.http.post<Gebruiker>('https://localhost:44329/api/Gebruiker', gebruiker);
   }
 }

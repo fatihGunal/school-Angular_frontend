@@ -7,6 +7,7 @@ export class Gebruiker {
   email: string;
   wachtwoord: string;
   gebruikersnaam: string;
+  token: string;
   gebruikerseen: Array<Vriendschap>;
   gebruikerstwee: Array<Vriendschap>;
   stemmen: Array<Stem>;

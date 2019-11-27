@@ -4,18 +4,18 @@
   </div>
 
   <div class="row">
-    <form class="col" (ngSubmit)="onSubmit()">
+    <form [formGroup]="registerForm" class="col" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Email:</label>
-        <input id="email" class="form-control" type="text" name="email" placeholder="Email" required [(ngModel)]="gebruiker.email"/>
+        <input id="email" class="form-control" type="text" formControlName="email" placeholder="Email" required/>
       </div>
       <div class="form-group">
         <label for="gebruikersnaam">gebruikersnaam:</label>
-        <input id="gebruikersnaam" class="form-control" type="text" name="gebruikersnaam" placeholder="gebruikersnaam" required [(ngModel)]="gebruiker.gebruikersnaam"/>
+        <input id="gebruikersnaam" class="form-control" type="text" formControlName="gebruikersnaam" placeholder="gebruikersnaam" required/>
       </div>
       <div class="form-group">
         <label for="wachtwoord">wachtwoord:</label>
-        <input id="wachtwoord" class="form-control" type="text" name="wachtwoord" placeholder="wachtwoord" required [(ngModel)]="gebruiker.wachtwoord"/>
+        <input id="wachtwoord" class="form-control" type="text" formControlName="wachtwoord" placeholder="wachtwoord" required/>
       </div>
 
       <button type="submit" [disabled]="submitted">Submit</button>

@@ -4,7 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {GebruikerService} from '../services/gebruiker.service';
 import {Observable} from 'rxjs';
 import {Gebruiker} from '../models/gebruiker.model';
@@ -14,7 +14,8 @@ import {Gebruiker} from '../models/gebruiker.model';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     GebruikerService
