@@ -1,6 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {AuthenticateService} from '../../services/authenticate.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {Gebruiker} from '../../models/gebruiker.model';
+import {BehaviorSubject} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,7 @@ export class LoginComponent implements OnInit {
     wachtwoord: new FormControl('', [Validators.required, Validators.minLength(3)])
   });
 
-  constructor(private authenticateService: AuthenticateService) {
+  constructor(private authenticateService: AuthenticateService, private router: Router) {
   }
 
   ngOnInit() {
@@ -25,8 +28,10 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     // API call
     this.authenticateService.authenticate(this.loginForm.value).subscribe(result => {
+      this.authenticateService.isLoggedin.next(result.token ? true : false);
       localStorage.setItem('token', result.token);
+      console.log(result + 'Persoon');
+      this.router.navigate(['home/' + result.gebruikerID]);
     });
   }
-
 }

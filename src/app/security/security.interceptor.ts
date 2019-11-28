@@ -14,11 +14,12 @@ export class SecurityInterceptor implements HttpInterceptor {
           Authorization: 'Bearer ' + token
         }
       });
+      console.log('authorized');
     }
     return next.handle(request).pipe(
       catchError(err => {
         if (err.status === 401) {
-          this.router.navigate(['security']);
+          this.router.navigate(['']);
         }
         return throwError('unauthorized');
       }));

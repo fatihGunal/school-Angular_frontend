@@ -5,6 +5,8 @@ export class Poll {
   pollID: number;
   titel: string;
   beschrijving: string;
-  pollgebruikers: Array<Pollgebruiker>;
   antwoorden: Array<Antwoord>;
+  pollgebruikers: Array<Pollgebruiker>;
+
+  //constructor(titel: string, beschrijving: string) {}
 }

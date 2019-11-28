@@ -16,6 +16,10 @@ export class GebruikerService {
     });
   }
 
+  getGebruiker(gebruikerID: number): Observable<Gebruiker> {
+    return this.http.get<Gebruiker>('https://localhost:44329/api/Gebruiker/' + gebruikerID);
+  }
+
   registreerGebruiker(gebruiker: Gebruiker) {
     return this.http.post<Gebruiker>('https://localhost:44329/api/Gebruiker', gebruiker);
   }

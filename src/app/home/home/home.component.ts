@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Gebruiker} from '../../models/gebruiker.model';
 import {GebruikerService} from '../../services/gebruiker.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +12,19 @@ import {GebruikerService} from '../../services/gebruiker.service';
 })
 export class HomeComponent implements OnInit {
 
-  gebruikers: Observable<Gebruiker[]>;
+  gelogdGebruikerID: number;
+  gebruiker: Gebruiker;
 
-  constructor(private gebruikerService: GebruikerService) {
-    this.gebruikers = this.gebruikerService.getGebruikers();
+  constructor(private gebruikerService: GebruikerService, private route: ActivatedRoute, private router: Router) {
+    this.route.params.subscribe( params => {
+      console.log(params.id);
+      this.gelogdGebruikerID = params.id;
+    });
+    this.gebruikerService.getGebruiker(this.gelogdGebruikerID)
+      .subscribe( data => {
+        this.gebruiker = data;
+      });
+    console.log(this.gebruiker);
   }
 
   ngOnInit() {

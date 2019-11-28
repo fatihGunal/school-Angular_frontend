@@ -8,19 +8,12 @@ export class Gebruiker {
   wachtwoord: string;
   gebruikersnaam: string;
   token: string;
-  gebruikerseen: Array<Vriendschap>;
-  gebruikerstwee: Array<Vriendschap>;
+  gebruikersEen: Array<Vriendschap>;
+  gebruikersTwee: Array<Vriendschap>;
   stemmen: Array<Stem>;
   pollgebruikers: Array<Pollgebruiker>;
 
 
-  // constructor(public id: number,
-  //             public email: string,
-  //             public wachtwoord: string,
-  //             public gebruikersnaam: string,
-  //             public gebruikerseen: Array<Vriendschap>,
-  //             public gebruikerstwee: Array<Vriendschap>,
-  //             public stemmen: Array<Stem>,
-  //             public pollgebruikers: Array<Pollgebruiker>) { }
+
 
 }

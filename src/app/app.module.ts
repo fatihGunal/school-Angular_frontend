@@ -15,11 +15,15 @@ import {AuthenticateService} from './services/authenticate.service';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SecurityInterceptor } from './security/security.interceptor';
+import {HomeComponent} from './home/home/home.component';
+import {HomeModule} from './home/home.module';
+import {AuthGuard} from './security/guards/auth.guard';
 
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'home/:id', component: HomeComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -32,6 +36,7 @@ const appRoutes: Routes = [
     LoginModule,
     FormsModule,
     HttpClientModule,
+    HomeModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true })
   ],
   providers: [

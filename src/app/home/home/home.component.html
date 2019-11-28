@@ -1,5 +1,6 @@
-<p>home works!</p>
-<h2>Gebruikers :)</h2>
-<ul>
-  <li *ngFor="let g of (gebruikers | async)">{{g.gebruikersnaam}}</li>
-</ul>
+<div id="home_component">
+  <div class="container">
+    <app-header [gebruiker]="gebruiker"></app-header>
+    <app-poll-aanmaak></app-poll-aanmaak>
+  </div>
+</div>
