@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PollService} from '../../services/poll.service';
 import {first} from 'rxjs/operators';
+import {Poll} from '../../models/poll.model';
 
 @Component({
   selector: 'app-poll',
@@ -11,7 +12,7 @@ import {first} from 'rxjs/operators';
 export class PollComponent implements OnInit {
 
   gekozenPollID: number;
-
+  poll: Poll;
 
   constructor(private route: ActivatedRoute, private pollService: PollService) {
     this.route.params.subscribe( params => {
@@ -27,8 +28,7 @@ export class PollComponent implements OnInit {
     console.log('JOW');
     this.pollService.getPollWithAntwoorden(this.gekozenPollID)
       .subscribe(result => {
-        console.log('HEY');
-        console.log(result + ' === POLL');
+        this.poll = result;
       });
   }
 
