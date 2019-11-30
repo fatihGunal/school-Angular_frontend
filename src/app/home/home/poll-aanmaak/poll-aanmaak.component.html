@@ -1,25 +1,25 @@
-<div class="row">
-  <div class="col">
-    <h3>Maak een poll</h3>
-    <div id="poll_aanmaak">
-      <form id="form" class="col" [formGroup]="maakPollForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <input id="titel" class="form-control" type="text" formControlName="titel" placeholder="titel" required/>
-          </div>
-          <div class="form-group">
-            <input id="Beschrijving" class="form-control" type="text" formControlName="beschrijving" placeholder="Beschrijving" required/>
-          </div>
-        <hr>
-          <div formArrayName="antwoorden" *ngFor="let item of maakPollForm.get('antwoorden').controls; let i = index;">
-            <div [formGroupName]="i">
-              <div class="form-group">
-                <input (change)="addItem()" (keydown.backspace)="deleteItem()" class="form-control" type="text" formControlName="antwoordPoll" placeholder="Antwoord" required/>
-              </div>
+<div class="col">
+  <h3>Maak een poll</h3>
+  <div class="poll_aanmaak">
+    <form id="form" class="col" [formGroup]="maakPollForm" (ngSubmit)="onSubmit()">
+      <input type="hidden">
+      <div class="form-group">
+          <input id="titel" class="form-control" type="text" formControlName="titel" placeholder="titel" required/>
+        </div>
+        <div class="form-group">
+          <input id="Beschrijving" class="form-control" type="text" formControlName="beschrijving" placeholder="Beschrijving" required/>
+        </div>
+      <hr>
+        <div formArrayName="antwoorden" *ngFor="let item of maakPollForm.get('antwoorden').controls; let i = index;">
+          <div [formGroupName]="i">
+            <div class="form-group">
+              <input (change)="addItem()" (keydown.backspace)="deleteItem()" class="form-control" type="text" formControlName="antwoordPoll" placeholder="Antwoord" required/>
             </div>
           </div>
-        <button type="submit" [disabled]="submitted">Submit</button>
-        <p>*Uit veld klikken voor nieuw of backspace voor verwijderen van antwoord !</p>
-      </form>
-    </div>
+        </div>
+      <button type="submit">Submit</button>
+      <p>*Uit veld klikken voor nieuw of backspace voor verwijderen van antwoord !</p>
+    </form>
   </div>
 </div>
+

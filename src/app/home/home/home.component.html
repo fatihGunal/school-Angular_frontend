@@ -1,6 +1,9 @@
 <div id="home_component">
   <div class="container">
     <app-header [gebruiker]="gebruiker"></app-header>
-    <app-poll-aanmaak></app-poll-aanmaak>
+    <div class="row">
+      <app-poll-aanmaak [gebruikersid]="gebruiker.gebruikerID"></app-poll-aanmaak>
+      <app-poll-overzichten [gebruikersid]="gebruiker.gebruikerID"></app-poll-overzichten>
+    </div>
   </div>
 </div>

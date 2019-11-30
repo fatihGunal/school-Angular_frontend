@@ -19,11 +19,24 @@ import {HomeComponent} from './home/home/home.component';
 import {HomeModule} from './home/home.module';
 import {AuthGuard} from './security/guards/auth.guard';
 
+import { registerLocaleData } from '@angular/common';
+import localeBE from '@angular/common/locales/be';
+import {PollService} from './services/poll.service';
+import {PollOverzichtComponent} from './home/home/poll-overzichten/poll-overzicht/poll-overzicht.component';
+import {PollOverzichtenComponent} from './home/home/poll-overzichten/poll-overzichten.component';
+import {PollAanmaakComponent} from './home/home/poll-aanmaak/poll-aanmaak.component';
+import {PollModule} from './poll/poll.module';
+import {PollComponent} from './poll/poll/poll.component';
+
+
+registerLocaleData(localeBE, 'be');
+
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home/:id', component: HomeComponent, canActivate: [AuthGuard] }
+  { path: 'home/:id', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'poll/:id', component: PollComponent }
 ];
 
 @NgModule({
@@ -37,10 +50,15 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     HomeModule,
+    PollModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true })
   ],
   providers: [
     GebruikerService,
+    PollService,
+    PollOverzichtComponent,
+    PollOverzichtenComponent,
+    PollAanmaakComponent,
     AuthenticateService,
     {
       provide: HTTP_INTERCEPTORS,

@@ -1,0 +1,6 @@
+<div class="col">
+  <h3>Overzicht mijn polls</h3>
+  <div *ngFor="let p of polls">
+    <app-poll-overzicht [poll]="p"></app-poll-overzicht>
+  </div>
+</div>

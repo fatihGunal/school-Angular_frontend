@@ -1,6 +1,7 @@
 import {Vriendschap} from './vriendschap.model';
 import {Stem} from './stem.model';
 import {Pollgebruiker} from './pollgebruiker.model';
+import {Poll} from './poll.model';
 
 export class Gebruiker {
   gebruikerID: number;
@@ -12,6 +13,7 @@ export class Gebruiker {
   gebruikersTwee: Array<Vriendschap>;
   stemmen: Array<Stem>;
   pollgebruikers: Array<Pollgebruiker>;
+  // polls: Array<Poll>;
 
 
 

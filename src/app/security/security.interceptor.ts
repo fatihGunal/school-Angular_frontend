@@ -14,7 +14,6 @@ export class SecurityInterceptor implements HttpInterceptor {
           Authorization: 'Bearer ' + token
         }
       });
-      console.log('authorized');
     }
     return next.handle(request).pipe(
       catchError(err => {

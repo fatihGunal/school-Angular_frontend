@@ -5,6 +5,7 @@
         <form id="form" class="col">
           <h1>{{poll.titel}}</h1>
           <h2>{{poll.beschrijving}}</h2>
+          <p>{{poll.aanmaakDatum | date:'dd/mm/yyyy'}} om {{poll.aanmaakDatum | date:'hh:mm'}}</p>
           <hr>
           <p>antwoorden</p>
           <button type="submit">Submit</button>

@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit {
     this.gebruikerService.getGebruiker(this.gelogdGebruikerID)
       .subscribe( data => {
         this.gebruiker = data;
+        console.log(data + '5848494');
       });
-    console.log(this.gebruiker);
   }
 
   ngOnInit() {

@@ -28,15 +28,12 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     // API call
-    this.gebruikerService.registreerGebruiker(this.registerForm.value)
+    const id = this.gebruikerService.registreerGebruiker(this.registerForm.value)
       .pipe(first())
-      .subscribe(
-        data => {
-          console.log('registration succesful' + this.registerForm);
-          this.router.navigate(['']);
-        },
-        error => {
-          console.log('Error register in');
-        });
+      .subscribe(data => {
+        console.log(data + 'registreren');
+      });
+
+    console.log(id);
   }
 }
