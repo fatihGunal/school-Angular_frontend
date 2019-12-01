@@ -74,4 +74,7 @@ export class PollstandenComponent implements OnInit {
         this.poll = result;
       });
   }
+  gaTerug() {
+    this.router.navigate(['home/' + this.poll.gebruikerID]);
+  }
 }
