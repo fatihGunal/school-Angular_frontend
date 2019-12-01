@@ -1,0 +1,6 @@
+<div id="gestemde_polls">
+  <h3>Mijn stemmen</h3>
+  <div *ngFor="let stem of mijnStemmen">
+    <app-poll-gestemd-child [stem]="stem"></app-poll-gestemd-child>
+  </div>
+</div>

@@ -2,8 +2,15 @@
   <div class="container">
     <app-header [gebruiker]="gebruiker"></app-header>
     <div class="row">
-      <app-poll-aanmaak [gebruikersid]="gebruiker.gebruikerID"></app-poll-aanmaak>
-      <app-poll-overzichten [gebruikersid]="gebruiker.gebruikerID"></app-poll-overzichten>
+      <div class="col">
+        <app-poll-aanmaak [gebruikersid]="gebruiker.gebruikerID"></app-poll-aanmaak>
+      </div>
     </div>
-  </div>
-</div>
+    <div class="row">
+      <div class="col">
+        <app-poll-overzichten [gebruikersid]="gebruiker.gebruikerID"></app-poll-overzichten>
+      </div>
+      <div class="col">
+        <app-poll-gestemd [gebruikersid]="gebruiker.gebruikerID"></app-poll-gestemd>
+      </div>
+    </div>

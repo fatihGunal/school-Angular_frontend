@@ -1,0 +1,21 @@
+<div id="poll_component">
+  <div class="container">
+    <div class="row">
+      <h1 class="col text-center header">Aantal stemmen van poll <span>{{poll.titel}}</span></h1>
+    </div>
+    <div class="row">
+      <div class="col poll_stem">
+
+        <div class="col">
+          <h1>{{poll.titel}}</h1>
+          <h2>{{poll.beschrijving}}</h2>
+          <p>{{poll.aanmaakDatum | date:'dd/mm/yyyy'}} om {{poll.aanmaakDatum | date:'hh:mm'}}</p>
+          <hr>
+          <div *ngFor="let ant of poll.antwoorden; let i = index; let j = index;">
+            <h4>{{i+1}}. {{ant.antwoordPoll}}: {{this["count"+j]}} stemmen</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.stem_bekijken {
+  max-width: 650px;
+  //min-height: 600px;
+  background-color: #d3e1ff;
+  color: grey;
+  border-radius: 5px;
+  overflow: auto;
+  margin: 10px;
+}
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: black;
+  margin: 10px;
+}
+.stemmen:hover {
+  cursor: pointer;
+
+  box-shadow:
+    3px 3px #53a7ea,
+    4px 4px #53a7ea,
+    5px 5px #53a7ea;
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-10px);
+}
+span {
+  font-size: 18px;
+}

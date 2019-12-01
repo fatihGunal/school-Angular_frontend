@@ -1,14 +1,11 @@
-//#registratie_form {
-//  width: 700px;
-//  margin: auto;
-//  form {
-//    margin: auto;
-//  }
-//  input {
-//    width: 300px;
-//  }
-//}
-.container {
-  max-width: 700px;
-  margin: auto;
+.registreer {
+  margin-top: 250px;
+  max-width: 600px;
+  padding: 70px;
+  border: 2px solid royalblue;
+  border-radius: 50px;
+  background-image: linear-gradient(to bottom, #7474BF, #348AC7);
+}
+button {
+  margin-top: 20px;
 }

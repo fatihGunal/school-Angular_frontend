@@ -1,4 +1,4 @@
-<div class="col">
+<div class="col volledig text-center">
   <h3>Maak een poll</h3>
   <div class="poll_aanmaak">
     <form id="form" class="col" [formGroup]="maakPollForm" (ngSubmit)="onSubmit()">
@@ -13,12 +13,12 @@
         <div formArrayName="antwoorden" *ngFor="let item of maakPollForm.get('antwoorden').controls; let i = index;">
           <div [formGroupName]="i">
             <div class="form-group">
-              <input (change)="addItem()" (keydown.backspace)="deleteItem()" class="form-control" type="text" formControlName="antwoordPoll" placeholder="Antwoord" required/>
+              <input (keydown.control.shift)="addItem()" (keydown.control.backspace)="deleteItem()" class="form-control" type="text" formControlName="antwoordPoll" placeholder="Antwoord" required/>
             </div>
           </div>
         </div>
-      <button type="submit">Submit</button>
-      <p>*Uit veld klikken voor nieuw of backspace voor verwijderen van antwoord !</p>
+      <p>*Ctrl+shift om veld toe te voegen/Ctrl+backspace om veld te verwijderen!</p>
+      <button type="submit" class="btn btn-primary">Maak poll</button>
     </form>
   </div>
 </div>

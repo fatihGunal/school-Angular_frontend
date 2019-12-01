@@ -1,14 +1,24 @@
 <div id="poll_component">
   <div class="container">
-    <div class="row margin">
+    <div class="row">
+      <h1 class="col text-center header">Stem op poll van <span>{{poll.gebruiker.gebruikersnaam}}</span></h1>
+    </div>
+    <div class="row">
       <div class="col poll_stem">
-        <form id="form" class="col">
+
+        <form id="form" class="col" [formGroup]="maakStemForm" (ngSubmit)="onSubmit()">
           <h1>{{poll.titel}}</h1>
           <h2>{{poll.beschrijving}}</h2>
-          <p>{{poll.aanmaakDatum | date:'dd/mm/yyyy'}} om {{poll.aanmaakDatum | date:'hh:mm'}}</p>
+          <p>aangemaakt op {{poll.aanmaakDatum | date:'dd/mm/yyyy'}} om {{poll.aanmaakDatum | date:'hh:mm'}} uur</p>
           <hr>
-          <p>antwoorden</p>
-          <button type="submit">Submit</button>
+          <div>
+            <mat-radio-group aria-label="Select an option" formControlName="AntwoordID">
+              <div *ngFor="let antwoord of poll.antwoorden">
+                <mat-radio-button [value]="antwoord.antwoordID">{{antwoord.antwoordPoll}}</mat-radio-button>
+              </div>
+            </mat-radio-group>
+          </div>
+          <button type="submit" class="btn btn-lg btn-warning">Stem!</button>
         </form>
       </div>
     </div>

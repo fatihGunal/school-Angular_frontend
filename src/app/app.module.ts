@@ -27,6 +27,11 @@ import {PollOverzichtenComponent} from './home/home/poll-overzichten/poll-overzi
 import {PollAanmaakComponent} from './home/home/poll-aanmaak/poll-aanmaak.component';
 import {PollModule} from './poll/poll.module';
 import {PollComponent} from './poll/poll/poll.component';
+import {MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {PollstandenModule} from './pollstanden/pollstanden.module';
+import {PollstandenComponent} from './pollstanden/pollstanden/pollstanden.component';
+import {AccessGuard} from './security/guards/access.guard';
 
 
 registerLocaleData(localeBE, 'be');
@@ -36,7 +41,8 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home/:id', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'poll/:id', component: PollComponent }
+  { path: 'poll/:id', component: PollComponent, canActivate: [AccessGuard] },
+  { path: 'pollstanden/:id', component: PollstandenComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -51,6 +57,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     HomeModule,
     PollModule,
+    PollstandenModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true })
   ],
   providers: [
@@ -64,7 +72,7 @@ const appRoutes: Routes = [
       provide: HTTP_INTERCEPTORS,
       useClass: SecurityInterceptor,
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

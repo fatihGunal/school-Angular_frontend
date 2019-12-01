@@ -9,11 +9,13 @@ import { PollOverzichtComponent } from './home/poll-overzichten/poll-overzicht/p
 import {GebruikerService} from '../services/gebruiker.service';
 import {PollService} from '../services/poll.service';
 import {RouterModule} from '@angular/router';
+import { PollGestemdComponent } from './home/poll-gestemd/poll-gestemd.component';
+import { PollGestemdChildComponent } from './home/poll-gestemd/poll-gestemd-child/poll-gestemd-child.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent, PollAanmaakComponent, PollOverzichtenComponent, PollOverzichtComponent],
+  declarations: [HomeComponent, HeaderComponent, PollAanmaakComponent, PollOverzichtenComponent, PollOverzichtComponent, PollGestemdComponent, PollGestemdChildComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

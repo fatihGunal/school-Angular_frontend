@@ -12,6 +12,7 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class LoginComponent implements OnInit {
   submitted: boolean = false;
+  unauthorized: boolean = false;
 
   loginForm = new FormGroup({
     gebruikersnaam: new FormControl('', Validators.required),
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  logIn() {
     this.submitted = true;
     // API call
     this.authenticateService.authenticate(this.loginForm.value).subscribe(result => {
@@ -32,6 +33,9 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', result.token);
       console.log(result + 'Persoon');
       this.router.navigate(['home/' + result.gebruikerID]);
+    }, error1 => {
+      this.unauthorized = true;
+      this.submitted = false;
     });
   }
 }

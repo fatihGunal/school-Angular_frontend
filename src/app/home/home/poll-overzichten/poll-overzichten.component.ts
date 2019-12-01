@@ -24,15 +24,16 @@ export class PollOverzichtenComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPollsWhereGebruikerID();
+    // this.getPollsWhereGebruikerID();
+    this.polls = this.pollService.polls;
   }
 
-  getPollsWhereGebruikerID() {
-    this.pollService.getPollsWhereGebruikerID(this.gebruikersid)
-      .pipe()
-      .subscribe(result => {
-        console.log('changes');
-        this.polls = result;
-      });
-  }
+  // getPollsWhereGebruikerID() {
+  //   this.pollService.getPollsWhereGebruikerID(this.gebruikersid)
+  //     .pipe()
+  //     .subscribe(result => {
+  //       console.log('changes');
+  //       this.polls = result;
+  //     });
+  // }
 }

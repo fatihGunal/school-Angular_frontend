@@ -78,7 +78,6 @@ export class PollAanmaakComponent implements OnInit {
 
   // wordt getriggered wanneer we op submit drukken bij aanmaak poll
   onSubmit() {
-    console.log(this.gebruikersid);
     this.maakPollForm.controls.gebruikerID.setValue(this.gebruikersid);
 
     // behavoirsubject true maken als er wordt gesubmit
@@ -89,6 +88,7 @@ export class PollAanmaakComponent implements OnInit {
     this.pollService.addPoll(this.maakPollForm.value)
       .pipe(first())
       .subscribe( result => {
+
         this.returnPoll = result.pollID;
         console.log( result + 'zit erin');
       });
