@@ -8,3 +8,4 @@ export class Antwoord {
   poll: Poll;
   stemmen: Array<Stem>;
 }
+

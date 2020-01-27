@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   gelogdGebruikerID: number;
   gebruiker: Gebruiker;
 
-  constructor(private gebruikerService: GebruikerService, private pollService: PollService ,private route: ActivatedRoute, private router: Router) {
+  constructor(private gebruikerService: GebruikerService, private pollService: PollService , private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe( params => {
       console.log(params.id);
       this.gelogdGebruikerID = params.id;

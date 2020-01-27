@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
       .subscribe(data => {
         console.log(data + 'registreren');
       });
-
+    this.router.navigate(['']);
     console.log(id);
   }
 }
